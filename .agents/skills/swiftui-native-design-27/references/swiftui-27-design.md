@@ -1,23 +1,23 @@
-# Apple 26 Design Reference
+# SwiftUI 27 Design Reference
 
-Use this file as the source map and design rulebook for SwiftUI iOS 26,
-iPadOS 26, and macOS 26 design work. Consult the linked Apple documentation
+Use this file as the source map and design rulebook for SwiftUI iOS 27,
+iPadOS 27, and macOS 27 design work. Consult the linked official documentation
 live when exact API names, availability, or platform guidance matters.
 
 ## Official Sources
 
 - SwiftUI technology overview:
   https://developer.apple.com/documentation/technologyoverviews/swiftui
-- Apple Design Resources:
+- Design Resources:
   https://developer.apple.com/design/resources/
 - Adopting Liquid Glass:
   https://developer.apple.com/documentation/TechnologyOverviews/adopting-liquid-glass
 - Liquid Glass technology overview:
   https://developer.apple.com/documentation/technologyoverviews/liquid-glass
-- Apple iOS 26 UI Kit on Sketch:
-  https://www.sketch.com/s/f63aa308-1f82-498c-8019-530f3b846db9
-- Apple macOS 26 UI Kit on Sketch:
-  https://www.sketch.com/s/7e5d41a8-dbde-4372-abf1-59792d73bc7c
+- iOS 27 UI Kit on Sketch:
+  https://www.sketch.com/s/04c24d8b-38fb-4afb-8836-36617e022f02
+- macOS 27 UI Kit on Sketch:
+  https://www.sketch.com/s/57153a31-3379-4737-8ac6-dbfd6525f052
 - Human Interface Guidelines:
   https://developer.apple.com/design/human-interface-guidelines
 - HIG materials:
@@ -38,26 +38,41 @@ live when exact API names, availability, or platform guidance matters.
   https://developer.apple.com/sf-symbols/
 - Icon Composer:
   https://developer.apple.com/icon-composer/
-- WWDC25 - Build a SwiftUI app with the new design:
-  https://developer.apple.com/videos/play/wwdc2025/323/
-- WWDC25 - Get to know the new design system:
-  https://developer.apple.com/videos/play/wwdc2025/356/
+- WWDC26 - What's new in SwiftUI:
+  https://developer.apple.com/videos/play/wwdc2026/269/
+- WWDC26 - Platforms State of the Union:
+  https://developer.apple.com/videos/play/wwdc2026/102/
 
 ## Source Notes
 
-- Apple Design Resources exposes official iOS/iPadOS 26 and macOS 26 UI kits,
+- The official design resources expose iOS/iPadOS 27 and macOS 27 UI kits,
   including Sketch links. Treat those files as visual references, not vendored
   assets.
-- The provided Sketch links identify as `Apple iOS 26 UI Kit` and
-  `Apple macOS 26 UI Kit`. Use them when a task depends on exact component
+- The provided Sketch links identify as `iOS 27 UI Kit` and
+  `macOS 27 UI Kit`. Use them when a task depends on exact component
   shape, spacing, or visual treatment.
 - SF Symbols should be the default icon source for interface actions because
   symbols align with San Francisco, text scale, localization, mirroring, and
   platform rendering.
-- Icon Composer is the relevant Apple tool for layered Liquid Glass app icons
-  across Apple platforms.
+- Icon Composer is the relevant tool for layered Liquid Glass app icons across
+  SwiftUI-supported platforms.
 
-## Apple 26 Design Model
+## OS 27 Notes
+
+- Recompile with the OS 27 SDK before judging the visual result; standard
+  SwiftUI surfaces pick up the updated Liquid Glass appearance automatically.
+- Treat OS 27 as a refinement of the OS 26 design system, not a reason to
+  re-create native chrome by hand.
+- Give extra attention to readability over complex content: OS 27 Liquid Glass
+  is tuned to diffuse busy backgrounds more effectively, but screenshots still
+  need inspection.
+- Test responsive layouts more aggressively. iPhone apps can become resizable
+  in OS 27 contexts, and Xcode 27 Live Previews support interactive resizing.
+- On iPad and Mac, inactive windows may present distinct visual states; use
+  platform state such as active/inactive appearance instead of hard-coded
+  opacity.
+
+## SwiftUI 27 Design Model
 
 - Native structure is the design system's foundation. Prefer standard SwiftUI
   navigation, tab, toolbar, search, sheet, popover, menu, form, list, sidebar,
@@ -97,7 +112,7 @@ live when exact API names, availability, or platform guidance matters.
 - Use `NavigationStack` for drill-in flows and explicit route state.
 - Use `NavigationSplitView` for multi-column iPad/macOS hierarchies where
   sidebar selection and detail content should remain visible.
-- Search has two main Apple 26 patterns:
+- Search has two main SwiftUI 27 patterns:
   toolbar search, and a dedicated search tab/page.
 - Attach `searchable` to the container matching the scope. App-wide split-view
   search belongs on `NavigationSplitView`; tab-wide search belongs on `TabView`
@@ -198,10 +213,10 @@ control
     .glassEffectID("primary-action", in: glassNamespace)
 ```
 
-Gate Apple 26-only APIs when the project targets earlier OS versions:
+Gate SwiftUI 27-only APIs when the project targets earlier OS versions:
 
 ```swift
-if #available(iOS 26, macOS 26, *) {
+if #available(iOS 27, macOS 27, *) {
     modernGlassView
 } else {
     fallbackMaterialView
@@ -220,7 +235,7 @@ if #available(iOS 26, macOS 26, *) {
   marketing versions when needed.
 - Do not hand-paint Liquid Glass icon effects into ordinary UI controls.
 
-## Apple 26 Visual Checklist
+## SwiftUI 27 Visual Checklist
 
 - Prefer system-adaptive colors and semantic foreground styles.
 - Use Liquid Glass for meaningful controls and system surfaces, not ambient
