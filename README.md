@@ -1,40 +1,43 @@
 # Apple Native Design 26 Skill
 
-`apple-native-design-26` is a Codex skill for designing, auditing, implementing,
-and verifying Apple-native SwiftUI UI/UX for iOS 26, iPadOS 26, and macOS 26.
+[![License: Apache-2.0](https://img.shields.io/badge/License-Apache--2.0-blue.svg)](LICENSE)
 
-The skill focuses on native platform structure first, then Apple 26 visual
-treatment: task flow, information architecture, navigation, tabs, toolbars,
-sidebars, inspectors, search, Liquid Glass, SF Symbols, app icons,
-accessibility, and platform-specific verification.
+A Codex skill for building SwiftUI interfaces that feel like real Apple apps,
+not screenshots of Apple apps.
 
-## What It Covers
+`apple-native-design-26` gives Codex a reusable workflow for designing,
+auditing, implementing, and verifying Apple-native UI/UX for iOS 26, iPadOS 26,
+and macOS 26. It focuses on the parts that usually separate polished native
+software from a nice-looking mockup: task flow, platform structure, system
+components, accessibility, Liquid Glass restraint, and runtime verification.
 
-- SwiftUI-first Apple 26 UI/UX workflow.
-- UX contract before visual implementation.
-- Native component selection and audit rules.
-- Apple 26 design rules for tabs, search, toolbars, controls, Liquid Glass, and
-  scroll edge effects.
-- iOS/iPadOS Simulator and macOS foreground app verification loops.
-- Screenshot acceptance and blocking failure criteria.
+## Why This Exists
 
-## Use In Codex
+Most AI-generated "Apple-style" UI gets the surface wrong in predictable ways:
 
-Invoke it explicitly in a prompt:
+- It draws fake sidebars, fake tab bars, fake toolbars, and fake glass instead
+  of using SwiftUI's native structures.
+- It treats Liquid Glass as decoration instead of an interaction and hierarchy
+  system.
+- It makes a screen look plausible while leaving the actual user flow, empty
+  states, error recovery, keyboard access, and accessibility undefined.
+- It stops after compile success, without launching the app or checking a
+  screenshot at real device/window sizes.
 
-```text
-Use $apple-native-design-26 to audit this macOS SwiftUI app for Apple 26 native UI/UX.
-```
+This skill makes Codex slow down at the right moments. It pushes the agent to
+define the UX contract first, choose native Apple components, apply Apple 26
+visual treatment only after the structure is right, and verify the result like
+native UI work actually needs to be verified.
 
-Examples:
+## What Codex Gets From This Skill
 
-```text
-Use $apple-native-design-26 to redesign Sources/App/ContentView.swift for macOS 26. Use native sidebars, toolbar/search, inspector patterns, and verify with build/run/screenshots.
-```
-
-```text
-Use $apple-native-design-26 to implement this iOS 26 SwiftUI screen. Define the UX contract first, use native tabs/search/toolbars/Liquid Glass where appropriate, then verify in Simulator.
-```
+| Area | What the skill enforces |
+| --- | --- |
+| UX contract | Target user, primary job, entry points, happy path, recovery, permissions, and success signal before UI work. |
+| Native structure | `TabView`, `NavigationStack`, `NavigationSplitView`, `toolbar`, `searchable`, `inspector`, sheets, popovers, menus, forms, lists, and commands before custom chrome. |
+| Apple 26 design | Practical guidance for tabs, search placement, toolbar grouping, controls, Liquid Glass, scroll edge effects, SF Symbols, and layered app icons. |
+| Component evidence | A native component map and optional local catalog reference so Codex can ground decisions in real SwiftUI examples. |
+| Verification | iOS/iPadOS Simulator and macOS foreground `.app` verification loops, screenshot acceptance criteria, accessibility checks, and blocking failure cases. |
 
 ## Install
 
@@ -44,31 +47,160 @@ This repository is already laid out as a repo-scoped Codex skill:
 .agents/skills/apple-native-design-26/
 ```
 
-To use it inside this repository, open the repo in Codex and mention
-`$apple-native-design-26`.
+Open this repository in Codex and mention the skill by name:
 
-To install it globally for your own Codex setup, copy the skill folder into the
-user skill directory used by your Codex installation, for example:
+```text
+Use $apple-native-design-26 to audit this SwiftUI app for Apple 26 native UI/UX.
+```
+
+To install it globally for your local Codex setup, copy the skill folder into
+your user skills directory:
 
 ```bash
 mkdir -p "$HOME/.agents/skills"
 cp -R .agents/skills/apple-native-design-26 "$HOME/.agents/skills/"
 ```
 
-Some local Codex setups also scan `$HOME/.codex/skills`; use the directory that
-your Codex installation lists in its skills panel.
+Some Codex app builds also scan `$HOME/.codex/skills`. If the skill does not
+appear in your skills list, use the path shown in your Codex skills panel or
+restart Codex after copying.
 
-## Source Policy
+## Example Prompts
 
-The skill references official Apple design and developer resources, including
-Apple Design Resources, Human Interface Guidelines, SF Symbols, Icon Composer,
-and Apple iOS/macOS 26 UI kits.
+Audit an existing macOS app:
 
-It does not vendor, copy, or redistribute Apple or Sketch assets. Official UI
-kits are treated as live reference material only.
+```text
+Use $apple-native-design-26 to review this macOS SwiftUI app. Findings first:
+native component mismatches, UX flow issues, accessibility gaps, Liquid Glass
+misuse, and missing verification.
+```
+
+Modernize a screen:
+
+```text
+Use $apple-native-design-26 to redesign Sources/App/ContentView.swift for macOS
+26. Replace fake chrome with native sidebars, toolbar/search, inspector
+patterns, and verify with build/run/screenshots.
+```
+
+Build a new iOS surface:
+
+```text
+Use $apple-native-design-26 to implement this iOS 26 SwiftUI screen. Define the
+UX contract first, use native tabs/search/toolbars/Liquid Glass where
+appropriate, then verify in Simulator.
+```
+
+Review a design-to-code result:
+
+```text
+Use $apple-native-design-26 to compare this SwiftUI implementation against the
+provided design. Separate UX issues, native-structure issues, visual fidelity
+issues, and verification gaps.
+```
+
+## Skill Contents
+
+```text
+.agents/skills/apple-native-design-26/
+├── SKILL.md
+├── agents/
+│   └── openai.yaml
+└── references/
+    ├── apple-26-design.md
+    ├── native-component-map.md
+    ├── ux-contract.md
+    └── verification.md
+```
+
+- `SKILL.md`: the main workflow Codex reads when the skill is invoked.
+- `apple-26-design.md`: distilled Apple 26 UI rules and official source links.
+- `ux-contract.md`: task flow, information architecture, state coverage,
+  permissions, recovery, and platform UX requirements.
+- `native-component-map.md`: native SwiftUI component choices and local catalog
+  grounding.
+- `verification.md`: platform-specific build, launch, screenshot,
+  accessibility, and failure criteria.
+
+## Design Principles
+
+The skill is opinionated:
+
+- Native structure first, visual polish second.
+- UX before pixels.
+- SwiftUI system components before custom drawing.
+- Liquid Glass only where it clarifies hierarchy or interaction.
+- SF Symbols and Icon Composer before one-off icon styling.
+- Runtime verification before claiming the UI is polished.
+- Apple and Sketch design files as references, not bundled assets.
+
+## Official References
+
+The skill links to, but does not copy, official Apple material:
+
+- [Apple Design Resources](https://developer.apple.com/design/resources/)
+- [Apple Human Interface Guidelines](https://developer.apple.com/design/human-interface-guidelines)
+- [SwiftUI technology overview](https://developer.apple.com/documentation/technologyoverviews/swiftui)
+- [Apple iOS 26 UI Kit](https://www.sketch.com/s/f63aa308-1f82-498c-8019-530f3b846db9)
+- [Apple macOS 26 UI Kit](https://www.sketch.com/s/7e5d41a8-dbde-4372-abf1-59792d73bc7c)
+- [SF Symbols](https://developer.apple.com/sf-symbols/)
+- [Icon Composer](https://developer.apple.com/icon-composer/)
+- [WWDC25: Build a SwiftUI app with the new design](https://developer.apple.com/videos/play/wwdc2025/323/)
+- [WWDC25: Get to know the new design system](https://developer.apple.com/videos/play/wwdc2025/356/)
+
+Exact URLs live in
+`.agents/skills/apple-native-design-26/references/apple-26-design.md`.
+
+## What This Is Not
+
+- It is not an Apple UI kit redistribution.
+- It does not include Apple, Sketch, or Figma assets.
+- It is not a replacement for compiling and running your app.
+- It is not a promise that every generated interface is perfect on the first
+  pass.
+
+It is a workflow that makes Codex ask the right questions, use the right native
+APIs, and collect the right evidence before it calls the work done.
+
+## Validation
+
+Run the skill validator after editing:
+
+```bash
+python /path/to/skill-creator/scripts/quick_validate.py \
+  .agents/skills/apple-native-design-26
+```
+
+Expected result:
+
+```text
+Skill is valid!
+```
+
+For visual UI changes made with this skill, also run the project-specific build
+and runtime checks described in `references/verification.md`.
+
+## Contributing
+
+Good contributions should make the skill more operational, not just longer.
+
+Useful PRs include:
+
+- Better Apple 26 component decision rules.
+- More precise SwiftUI examples for native structures.
+- Stronger iOS Simulator or macOS app verification guidance.
+- Accessibility and Dynamic Type improvements.
+- Corrections when Apple updates APIs or HIG guidance.
+
+Please avoid:
+
+- Copying Apple, Sketch, or Figma assets into the repository.
+- Adding broad design advice that does not change Codex behavior.
+- Expanding the skill into unrelated Apple platforms without a clear workflow.
 
 ## License
 
-Apache-2.0. This is a permissive open-source license with an explicit patent
-grant, which is a good default for reusable developer tooling and workflow
-assets.
+Apache-2.0.
+
+Apache-2.0 is permissive and includes an explicit patent grant, which makes it a
+good default for reusable developer tooling and agent workflow assets.
