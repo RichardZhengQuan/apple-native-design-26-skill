@@ -1,7 +1,7 @@
 # UX Contract
 
-Use this before building or auditing an Apple-native surface. A visually native
-screen is not a good Apple experience if the task flow, state model, recovery,
+Use this before building or auditing a SwiftUI-native surface. A visually native
+screen is not a good SwiftUI experience if the task flow, state model, recovery,
 or accessibility path is weak.
 
 ## Required UX Frame

@@ -1,4 +1,0 @@
-interface:
-  display_name: "Apple Native Design 26"
-  short_description: "Apple 26 SwiftUI UI/UX and verification"
-  default_prompt: "Use $apple-native-design-26 to design, implement, and verify this SwiftUI UI/UX against Apple 26 native patterns."

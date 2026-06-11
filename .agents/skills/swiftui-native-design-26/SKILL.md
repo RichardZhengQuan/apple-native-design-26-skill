@@ -1,21 +1,19 @@
 ---
-name: apple-native-design-26
-description: Design, audit, and implement Apple-native SwiftUI UI and UX for iOS 26, iPadOS 26, and macOS 26. Use when building, modernizing, reviewing, or polishing Apple 26 interfaces, Liquid Glass, native app structure, navigation, task flows, tab bars, toolbars, sidebars, inspectors, search, controls, states, accessibility, SF Symbols, app icons, verification, or official Apple UI kit references.
+name: swiftui-native-design-26
+description: Design, audit, and implement SwiftUI-native UI and UX for iOS 26, iPadOS 26, and macOS 26. Use when building, modernizing, reviewing, or polishing SwiftUI 26 interfaces, Liquid Glass, native app structure, navigation, task flows, tab bars, toolbars, sidebars, inspectors, search, controls, states, accessibility, SF Symbols, app icons, verification, or official UI kit references.
 ---
 
-# Apple Native Design 26
+# SwiftUI Native Design 26
 
 ## Overview
 
-Use this skill for SwiftUI-first Apple platform UI and UX work where the target
+Use this skill for SwiftUI-first iOS, iPadOS, and macOS UI and UX work where the target
 is iOS 26, iPadOS 26, or macOS 26. Build the native experience first, then style
 it: task flow, information architecture, platform structure, controls,
 presentation, focus, keyboard, accessibility, and runtime verification matter
 more than screenshot-only visual imitation.
 
-Keep this skill focused on Apple 26 design decisions. Do not invoke
-`apple-ui-experience` directly; its useful native-first principles are already
-folded into this workflow.
+Keep this skill focused on SwiftUI 26 design decisions.
 
 ## Quick Start
 
@@ -29,28 +27,28 @@ folded into this workflow.
 4. Choose native structures before custom chrome: `TabView`, `NavigationStack`,
    `NavigationSplitView`, `toolbar`, `searchable`, `inspector`, `sheet`,
    `popover`, `Menu`, `Form`, `List`, standard controls, and commands.
-5. Apply Apple 26 treatment after the structure is correct: system surfaces,
+5. Apply SwiftUI 26 treatment after the structure is correct: system surfaces,
    Liquid Glass, adaptive layout, content-first hierarchy, SF Symbols, and
    Icon Composer guidance where relevant.
 6. Verify with the platform-specific loop in `references/verification.md`.
-   Do not claim Apple-native polish until build, launch, screenshot inspection,
+   Do not claim SwiftUI-native polish until build, launch, screenshot inspection,
    accessibility, state coverage, and compact/desktop sizing have been checked.
 
 When API availability or platform behavior may have changed, consult current
-Apple Developer documentation in addition to this skill's references.
+official developer documentation in addition to this skill's references.
 
 ## Task Paths
 
 ### Design Audit
 
 - Lead with concrete mismatches: missing native APIs, fake system components,
-  broken task flow, custom chrome that fights Apple 26 behavior, unreadable
+  broken task flow, custom chrome that fights SwiftUI 26 behavior, unreadable
   glass, poor density, missing states, missing accessibility, or missing
   verification.
 - Reference code paths and line numbers when reviewing implementation.
 - Separate structure issues from visual polish; a visually close mockup is not
   correct if it lacks native navigation, focus, keyboard, or presentation.
-- Load `references/apple-26-design.md`, `references/ux-contract.md`, and
+- Load `references/swiftui-26-design.md`, `references/ux-contract.md`, and
   `references/verification.md`.
 - Load `references/native-component-map.md` when auditing app shell, search,
   toolbar, sidebar, inspector, controls, Liquid Glass, sheets, tabs, menus, or a
@@ -65,7 +63,7 @@ Apple Developer documentation in addition to this skill's references.
   settings panels, and controls with native SwiftUI equivalents where possible.
 - Remove opaque fills, nested cards, dark scrims, and bespoke blur layers that
   obscure system surfaces unless the product explicitly needs them.
-- Add Apple 26 APIs behind availability checks when the project still supports
+- Add SwiftUI 26 APIs behind availability checks when the project still supports
   earlier OS versions.
 - Preserve established local state ownership and file boundaries.
 - Use `references/native-component-map.md` and the local component catalog when
@@ -94,8 +92,8 @@ Apple Developer documentation in addition to this skill's references.
 - Use `TabView` for persistent app sections and `NavigationStack` for drill-in
   flows. Avoid custom tab bars unless native tabs cannot express the product
   model.
-- Let system navigation, tab bars, sheets, menus, and controls carry the Apple
-  26 visual language before adding custom glass.
+- Let system navigation, tab bars, sheets, menus, and controls carry the
+  SwiftUI 26 visual language before adding custom glass.
 - Keep content visible and scannable around floating bars and bottom
   accessories. Do not place critical text behind busy translucent content.
 - Design for Dynamic Type, touch targets, safe areas, orientation changes,
@@ -139,7 +137,7 @@ Apple Developer documentation in addition to this skill's references.
 - Use SF Symbols or the app's existing symbol system for interface icons.
 - Use Icon Composer guidance for layered app icons instead of hand-painted
   one-off icon effects.
-- Treat the official Apple Sketch/Figma UI kits as reference material. Do not
+- Treat the official Sketch/Figma UI kits as reference material. Do not
   copy, vendor, or redistribute UI kit assets inside a skill or repo unless the
   user provides separate rights and asks for that explicitly.
 - If a task depends on exact design-file details, inspect the live Sketch/Figma
@@ -147,8 +145,8 @@ Apple Developer documentation in addition to this skill's references.
 
 ## References
 
-- Load `references/apple-26-design.md` for official source links and distilled
-  Apple 26 UI rules.
+- Load `references/swiftui-26-design.md` for official source links and distilled
+  SwiftUI 26 UI rules.
 - Load `references/ux-contract.md` for task-flow, information architecture,
   states, permissions, and recovery requirements.
 - Load `references/native-component-map.md` whenever choosing or auditing

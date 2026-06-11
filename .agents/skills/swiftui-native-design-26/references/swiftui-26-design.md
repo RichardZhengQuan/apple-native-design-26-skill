@@ -1,22 +1,22 @@
-# Apple 26 Design Reference
+# SwiftUI 26 Design Reference
 
 Use this file as the source map and design rulebook for SwiftUI iOS 26,
-iPadOS 26, and macOS 26 design work. Consult the linked Apple documentation
+iPadOS 26, and macOS 26 design work. Consult the linked official documentation
 live when exact API names, availability, or platform guidance matters.
 
 ## Official Sources
 
 - SwiftUI technology overview:
   https://developer.apple.com/documentation/technologyoverviews/swiftui
-- Apple Design Resources:
+- Design Resources:
   https://developer.apple.com/design/resources/
 - Adopting Liquid Glass:
   https://developer.apple.com/documentation/TechnologyOverviews/adopting-liquid-glass
 - Liquid Glass technology overview:
   https://developer.apple.com/documentation/technologyoverviews/liquid-glass
-- Apple iOS 26 UI Kit on Sketch:
+- iOS 26 UI Kit on Sketch:
   https://www.sketch.com/s/f63aa308-1f82-498c-8019-530f3b846db9
-- Apple macOS 26 UI Kit on Sketch:
+- macOS 26 UI Kit on Sketch:
   https://www.sketch.com/s/7e5d41a8-dbde-4372-abf1-59792d73bc7c
 - Human Interface Guidelines:
   https://developer.apple.com/design/human-interface-guidelines
@@ -45,19 +45,19 @@ live when exact API names, availability, or platform guidance matters.
 
 ## Source Notes
 
-- Apple Design Resources exposes official iOS/iPadOS 26 and macOS 26 UI kits,
+- The official design resources expose iOS/iPadOS 26 and macOS 26 UI kits,
   including Sketch links. Treat those files as visual references, not vendored
   assets.
-- The provided Sketch links identify as `Apple iOS 26 UI Kit` and
-  `Apple macOS 26 UI Kit`. Use them when a task depends on exact component
+- The provided Sketch links identify as `iOS 26 UI Kit` and
+  `macOS 26 UI Kit`. Use them when a task depends on exact component
   shape, spacing, or visual treatment.
 - SF Symbols should be the default icon source for interface actions because
   symbols align with San Francisco, text scale, localization, mirroring, and
   platform rendering.
-- Icon Composer is the relevant Apple tool for layered Liquid Glass app icons
-  across Apple platforms.
+- Icon Composer is the relevant tool for layered Liquid Glass app icons across
+  SwiftUI-supported platforms.
 
-## Apple 26 Design Model
+## SwiftUI 26 Design Model
 
 - Native structure is the design system's foundation. Prefer standard SwiftUI
   navigation, tab, toolbar, search, sheet, popover, menu, form, list, sidebar,
@@ -97,7 +97,7 @@ live when exact API names, availability, or platform guidance matters.
 - Use `NavigationStack` for drill-in flows and explicit route state.
 - Use `NavigationSplitView` for multi-column iPad/macOS hierarchies where
   sidebar selection and detail content should remain visible.
-- Search has two main Apple 26 patterns:
+- Search has two main SwiftUI 26 patterns:
   toolbar search, and a dedicated search tab/page.
 - Attach `searchable` to the container matching the scope. App-wide split-view
   search belongs on `NavigationSplitView`; tab-wide search belongs on `TabView`
@@ -198,7 +198,7 @@ control
     .glassEffectID("primary-action", in: glassNamespace)
 ```
 
-Gate Apple 26-only APIs when the project targets earlier OS versions:
+Gate SwiftUI 26-only APIs when the project targets earlier OS versions:
 
 ```swift
 if #available(iOS 26, macOS 26, *) {
@@ -220,7 +220,7 @@ if #available(iOS 26, macOS 26, *) {
   marketing versions when needed.
 - Do not hand-paint Liquid Glass icon effects into ordinary UI controls.
 
-## Apple 26 Visual Checklist
+## SwiftUI 26 Visual Checklist
 
 - Prefer system-adaptive colors and semantic foreground styles.
 - Use Liquid Glass for meaningful controls and system surfaces, not ambient

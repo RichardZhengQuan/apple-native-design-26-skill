@@ -1,7 +1,7 @@
 # Native Component Map
 
 Use this when choosing components, auditing a design, or implementing a
-reusable Apple 26 surface. If `/Users/richardq/Documents/Components` exists,
+reusable SwiftUI 26 surface. If `/Users/richardq/Documents/Components` exists,
 use it as local implementation evidence for comparable SwiftUI patterns before
 inventing a new component.
 

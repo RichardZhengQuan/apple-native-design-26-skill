@@ -1,7 +1,7 @@
 # Verification Contract
 
-Use this before finalizing any Apple 26 UI or UX work. Do not claim that a
-surface is Apple-native, polished, or complete from compile success alone.
+Use this before finalizing any SwiftUI 26 UI or UX work. Do not claim that a
+surface is SwiftUI-native, polished, or complete from compile success alone.
 
 ## Required Evidence
 
