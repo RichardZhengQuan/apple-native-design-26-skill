@@ -136,20 +136,42 @@ The skill is opinionated:
 
 ## Official References
 
-The skill links to, but does not copy, official Apple material:
+The skill links to, but does not copy, official Apple material. The complete
+source set currently used by the skill is:
+
+### Apple Design And Technology
 
 - [Apple Design Resources](https://developer.apple.com/design/resources/)
-- [Apple Human Interface Guidelines](https://developer.apple.com/design/human-interface-guidelines)
 - [SwiftUI technology overview](https://developer.apple.com/documentation/technologyoverviews/swiftui)
-- [Apple iOS 26 UI Kit](https://www.sketch.com/s/f63aa308-1f82-498c-8019-530f3b846db9)
-- [Apple macOS 26 UI Kit](https://www.sketch.com/s/7e5d41a8-dbde-4372-abf1-59792d73bc7c)
+- [Adopting Liquid Glass](https://developer.apple.com/documentation/TechnologyOverviews/adopting-liquid-glass)
+- [Liquid Glass technology overview](https://developer.apple.com/documentation/technologyoverviews/liquid-glass)
 - [SF Symbols](https://developer.apple.com/sf-symbols/)
 - [Icon Composer](https://developer.apple.com/icon-composer/)
+
+### Human Interface Guidelines
+
+- [Human Interface Guidelines](https://developer.apple.com/design/human-interface-guidelines)
+- [HIG: Materials](https://developer.apple.com/design/human-interface-guidelines/materials)
+- [HIG: Layout](https://developer.apple.com/design/human-interface-guidelines/layout)
+- [HIG: Navigation and search](https://developer.apple.com/design/human-interface-guidelines/navigation-and-search)
+- [HIG: Tab bars](https://developer.apple.com/design/human-interface-guidelines/tab-bars)
+- [HIG: Toolbars](https://developer.apple.com/design/human-interface-guidelines/toolbars)
+- [HIG: Sidebars](https://developer.apple.com/design/human-interface-guidelines/sidebars)
+- [HIG: App icons](https://developer.apple.com/design/human-interface-guidelines/app-icons/)
+
+### Apple UI Kits
+
+- [Apple iOS 26 UI Kit on Sketch](https://www.sketch.com/s/f63aa308-1f82-498c-8019-530f3b846db9)
+- [Apple macOS 26 UI Kit on Sketch](https://www.sketch.com/s/7e5d41a8-dbde-4372-abf1-59792d73bc7c)
+
+### WWDC Design Sessions
+
 - [WWDC25: Build a SwiftUI app with the new design](https://developer.apple.com/videos/play/wwdc2025/323/)
 - [WWDC25: Get to know the new design system](https://developer.apple.com/videos/play/wwdc2025/356/)
 
-Exact URLs live in
-`.agents/skills/apple-native-design-26/references/apple-26-design.md`.
+The same URLs live in
+`.agents/skills/apple-native-design-26/references/apple-26-design.md` so Codex
+can load them while using the skill.
 
 ## What This Is Not
 
