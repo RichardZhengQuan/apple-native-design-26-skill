@@ -1,0 +1,4 @@
+interface:
+  display_name: "SwiftUI Native Design 27"
+  short_description: "SwiftUI-native UI/UX and verification"
+  default_prompt: "Use $swiftui-native-design-27 to design, implement, and verify this SwiftUI UI/UX against SwiftUI 27 native patterns."
